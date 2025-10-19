@@ -1,0 +1,78 @@
+<!-- 
+  Header se 'hidden' class ki binding hata di gayi hai.
+  Ab header scroll karne par hide nahi hoga.
+-->
+<header 
+  class="site-header" 
+  [class.scrolled]="isHeaderScrolled" 
+  [class.menu-open]="isMenuOpen">
+
+  <div class="container header-container">
+    
+    <!-- Left side: Animated Logo -->
+    <div class="logo-container">
+      <a href="#" class="logo-link">
+        <!-- Naya attractive logo SVG -->
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5V7.5l6 4.5-6 4.5z"/>
+        </svg>
+        <span class="logo-text">IT Hub</span>
+      </a>
+    </div>
+
+    <!-- Center: Navigation Links with new animation -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#"><span>Categories</span></a></li>
+        <li><a href="#"><span>Courses</span></a></li>
+        <li><a href="#"><span>Teach on IT Hub</span></a></li>
+      </ul>
+    </nav>
+    
+    <!-- Animated Search Bar -->
+    <div class="search-container">
+       <input type="text" placeholder="Search for anything..." class="search-input">
+       <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+
+    <!-- Right side: Icons and Auth Buttons with hover effects -->
+    <div class="actions-container">
+        <a href="#" class="action-icon cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+        </a>
+        <div class="auth-buttons">
+            <a href="#" class="login-btn">Log in</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Animated Hamburger Menu Icon (sirf mobile par dikhega) -->
+    <button class="hamburger-menu" (click)="toggleMenu()">
+      <span class="line line-1"></span>
+      <span class="line line-2"></span>
+      <span class="line line-3"></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu with animations -->
+  <nav class="mobile-nav" [class.open]="isMenuOpen">
+      <div class="mobile-nav-inner">
+        <a href="#" style="--delay: 0.1s;">Categories</a>
+        <a href="#" style="--delay: 0.2s;">Courses</a>
+        <a href="#" style="--delay: 0.3s;">Teach on IT Hub</a>
+        <hr style="--delay: 0.4s;">
+        <div class="mobile-auth-buttons" style="--delay: 0.5s;">
+          <a href="#" class="mobile-login-btn">Log In</a>
+          <a href="#" class="mobile-signup-btn">Sign Up</a>
+        </div>
+      </div>
+  </nav>
+  <div class="mobile-menu-overlay" [class.open]="isMenuOpen" (click)="toggleMenu()"></div>
+
+</header>
+

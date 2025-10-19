@@ -1,0 +1,89 @@
+<main>
+  <!-- Hero Section (with dynamic background and animations) --><section class="hero-section">
+    <div class="container hero-container">
+      <h1 class="hero-title">
+        <span class="line-1">Start Your IT Career,</span>
+        <span class="line-2">With IT Hub Today.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Learn from India's best instructors and get placed in top companies. Reach your goals with live classes, doubt solving, and practical projects.
+      </p>
+      <div class="hero-cta">
+        <a href="#" class="cta-button">Explore Courses Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Demo Classes Section --><section class="demo-classes-section">
+    <div class="container">
+      <div class="section-heading">
+        <h2 class="section-title">Watch Our Free Demo Classes</h2>
+        <p class="section-subtitle">
+          Get a glimpse of our teaching style and course quality before you enroll.
+        </p>
+      </div>
+    </div>
+
+    <!-- Video Scrollers --><div class="video-scroller" data-direction="right" data-speed="slow">
+      <div class="scroller-inner">
+        <!-- Loop to create demo video cards --><div class="demo-card" *ngFor="let video of scrollerVideos1" (click)="openModal(video.youtubeVideoId)">
+          <div class="thumbnail-container">
+            <!-- Using the video.thumbnailUrl directly --><img [src]="video.thumbnailUrl" [alt]="video.title" class="thumbnail-image">
+            <div class="thumbnail-overlay">
+              <div class="play-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.5 5.25L15 12l-7.5 6.75V5.25z" />
+                </svg>
+              </div>
+            </div>
+             <span class="video-duration">{{ video.duration }}</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">{{ video.title }}</h3>
+            <p class="video-instructor">by {{ video.instructor }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-scroller" data-direction="left" data-speed="slow">
+      <div class="scroller-inner">
+        <div class="demo-card" *ngFor="let video of scrollerVideos2" (click)="openModal(video.youtubeVideoId)">
+          <div class="thumbnail-container">
+            <!-- Using the video.thumbnailUrl directly --><img [src]="video.thumbnailUrl" [alt]="video.title" class="thumbnail-image">
+             <div class="thumbnail-overlay">
+              <div class="play-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.5 5.25L15 12l-7.5 6.75V5.25z" />
+                </svg>
+              </div>
+            </div>
+            <span class="video-duration">{{ video.duration }}</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">{{ video.title }}</h3>
+            <p class="video-instructor">by {{ video.instructor }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Player Modal --><div class="video-modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()">
+    <div class="video-modal-content" (click)="$event.stopPropagation()">
+      <button class="close-modal-btn" (click)="closeModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="video-wrapper">
+        <iframe width="560" height="315" [src]="selectedVideoUrl"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</main>
+
